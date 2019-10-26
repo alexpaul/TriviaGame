@@ -9,7 +9,7 @@
 import Foundation
 
 enum TriviaType: String {
-  case movieTrivia // movieTrivia.rawValue = "movieTrivia"
+  case movieTrivia
   case musicTrivia
   case sportsTrivia
   case nycTrivia

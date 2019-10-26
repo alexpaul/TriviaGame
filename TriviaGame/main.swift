@@ -8,10 +8,7 @@
 
 import Foundation
 
-// create a Game instance
 let game = Game()
-
-var playAgain = false
 
 let userPrompt = """
 Select the type of Trivia you would like to play?
@@ -22,27 +19,29 @@ Select the type of Trivia you would like to play?
 5. Second Grade Math
 """
 
-repeat { // checks if user wants to continue
+var playAgain = false
+
+repeat {
   print(userPrompt)
   let userResponse = readLine() ?? ""
   print()
-  game.selectTrivia(userResponse)
-  repeat { // goes through the questions array
+  game.selectTrivia(userResponse.trimmingCharacters(in: .whitespacesAndNewlines))
+  print("There are \(game.questionsCount) questions, how many would you like\nto attempt (all, or select number amount e.g (5, 8))?")
+  let questionsNubmerResponse = readLine() ?? ""
+  game.numberQuestionsPrompt(userResponse: questionsNubmerResponse
+    .lowercased()
+    .trimmingCharacters(in: .whitespacesAndNewlines))
+  repeat {
     guard let question = game.getQuestion() else {
       break
     }
     game.questionsInfo()
-    print(question.questionPrompt)
-    print(question.choices)
+    question.info()
     let userAnswer = readLine() ?? ""
     game.checkAnswer(usersAnswer: userAnswer, question: question)
     print()
   }while game.hasMoreQuestions
-  
   game.finalScore()
-  
-  // prompt the user whether or not they want to keep
-  // playing
   print("Do you wish to continue playing? (yes, no)")
   let shouldContinuePlaying = readLine() ?? ""
   if shouldContinuePlaying == "yes" {

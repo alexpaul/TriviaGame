@@ -8,14 +8,13 @@
 
 import Foundation
 
-class Question { // this should be a struct
-  var questionPrompt: String
-  var correctAnswer: String
-  var choices: String
-  var fact: String
-  var triviaType: TriviaType // movieTrivia, musicTrivia, sportsTrivia, nycTrivia
+struct Question { 
+  private var questionPrompt: String
+  public private (set) var correctAnswer: String
+  private var choices: String
+  public private (set) var fact: String
+  private var triviaType: TriviaType
   
-  // designated initializer
   init(questionPrompt: String,
        correctAnswer: String,
        choices: String,
@@ -28,9 +27,7 @@ class Question { // this should be a struct
     self.triviaType = triviaType
   }
   
-  // failable convenience initializer that
-  // takes in a dictionary of type [String: Any]
-   convenience init?(dict: [String: Any]) {
+  init?(dict: [String: Any]) {
     guard let questionPrompt = dict["question"] as? String,
       let correctAnswer = dict["correctAnswer"] as? String,
       let choices = dict["choices"] as? String,
@@ -38,14 +35,16 @@ class Question { // this should be a struct
       let triviaType = dict["triviaType"] as? String else {
         return nil
     }
-    //  a valid TriviaType from the enum to add to the designated initializer below
     self.init(questionPrompt: questionPrompt,
               correctAnswer: correctAnswer,
               choices: choices,
               fact: fact,
-              // creating a TriviaType using the rawValue
-              // initializer
-      triviaType: TriviaType(rawValue: triviaType) ?? TriviaType.sportsTrivia)
+              triviaType: TriviaType(rawValue: triviaType) ?? TriviaType.sportsTrivia)
+  }
+  
+  func info() {
+    print(questionPrompt)
+    print(choices)
   }
 }
 
