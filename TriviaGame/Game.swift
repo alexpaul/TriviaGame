@@ -81,7 +81,7 @@ class Game {
   
   func questionsInfo() {
     if questions.isEmpty {
-      print("Last question.\n")
+      print("Last question. 🥳\n")
     } else {
       print("There are \(questions.count + 1) questions left.\n")
     }
@@ -99,7 +99,6 @@ class Game {
   func sliceQuestions(prefix: Int) {
     guard prefix < questions.count,
       prefix > 0 else { return }
-    print("here")
     let slice = questions.prefix(upTo: prefix)
     questions = Array(slice)
   }
