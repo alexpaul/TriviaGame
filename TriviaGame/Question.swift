@@ -14,6 +14,7 @@ struct Question {
   private var choices: String
   public private (set) var fact: String
   private var triviaType: TriviaType
+  public private (set) var level: Int?
   
   init(questionPrompt: String,
        correctAnswer: String,
@@ -40,6 +41,7 @@ struct Question {
               choices: choices,
               fact: fact,
               triviaType: TriviaType(rawValue: triviaType) ?? TriviaType.sportsTrivia)
+    self.level = Int(dict["level"] as? String ?? "no level info")
   }
   
   func info() {

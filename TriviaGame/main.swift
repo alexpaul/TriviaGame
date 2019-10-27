@@ -10,8 +10,8 @@ import Foundation
 
 let game = Game()
 
-let userPrompt = """
-Select the type of Trivia you would like to play?
+let triviaPrompt = """
+Enter the trivia number from below you would like to play:
 1. Movie Trivia
 2. Sports Trivia
 3. Music Trivia
@@ -19,18 +19,32 @@ Select the type of Trivia you would like to play?
 5. Second Grade Math
 """
 
+let levelPrompt = """
+Available levels
+1. Easy
+2. Medium
+3. Hard
+4. All levels
+"""
+
 var playAgain = false
 
 repeat {
-  print(userPrompt)
-  let userResponse = readLine() ?? ""
+  print(triviaPrompt)
+  let triviaResponse = readLine() ?? ""
   print()
-  game.selectTrivia(userResponse.trimmingCharacters(in: .whitespacesAndNewlines))
+  game.selectTrivia(triviaResponse.trimmingCharacters(in: .whitespacesAndNewlines))
+  
+  print(levelPrompt)
+  let levelResponse = readLine() ?? ""
+  game.filterLevels(response: levelResponse)
+  
   print("There are \(game.questionsCount) questions, how many would you like\nto attempt (all, or select number amount e.g (5, 8))?")
   let questionsNubmerResponse = readLine() ?? ""
   game.numberQuestionsPrompt(userResponse: questionsNubmerResponse
     .lowercased()
     .trimmingCharacters(in: .whitespacesAndNewlines))
+  
   repeat {
     guard let question = game.getQuestion() else {
       break

@@ -102,4 +102,12 @@ class Game {
     let slice = questions.prefix(upTo: prefix)
     questions = Array(slice)
   }
+  
+  func filterLevels(response: String) {
+    let level = Int(response) ?? -1
+    if (1...3).contains(level) {
+      questions = questions.filter { $0.level == level }
+      totalQuestions = questions.count
+    }
+  }
 }

@@ -76,7 +76,7 @@ struct Trivia {
     "choices": "a. 10 - 1 = 9\nb. 10 - 4 = 6\nc. 10 - 5 = 5\nd. 10 - 6 = 4\n",
     "fact": "10 - 1 = 9 has the same result as 15 - 6 = 9",
     "triviaType": "secondGradeMath",
-    "level": "hard"],
+    "level": "3"],
     ["question": "Which shows a way to find the sum?\n8 + 5 = ____",
     "correctAnswer": "a",
     "choices": "a. 10 + 3 = 13\nb. 10 + 5 = 15\nc. 10 + 6 = 16\nd. 10 + 8 = 18",
