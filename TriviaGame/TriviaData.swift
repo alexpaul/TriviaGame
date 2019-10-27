@@ -95,7 +95,7 @@ struct Trivia {
     "fact": "7 stars for Sally + (7 stars + 1 star for Mike)\n7 + 8 = 15 stars counted in all\n",
     "triviaType": "secondGradeMath",
     "level": "3"],
-    ["question": "Phillip puts 5 pencils on each\ndesk. How many pencils does\nPhillip put on 4 desks?/nDraw to show what you did.\n____pencils.",
+    ["question": "Phillip puts 5 pencils on each\ndesk. How many pencils does\nPhillip put on 4 desks?\nDraw to show what you did.\n____pencils.",
       "correctAnswer": "20",
       "choices": "",
       "fact": "Desk1: ✏️✏️✏️✏️✏️\nDesk2: ✏️✏️✏️✏️✏️\nDesk3: ✏️✏️✏️✏️✏️\nDesk4: ✏️✏️✏️✏️✏️\n",
